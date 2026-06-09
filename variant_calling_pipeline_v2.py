@@ -317,7 +317,7 @@ Read groups (`-R`) are required by GATK and help track sample identity.
 # echo "# Normalised FreeBayes VCF preview:"
 # zcat ./variants/freebayes/cohort_freebayes_norm.vcf.gz | grep -v "^##" | head -10
 
-"""## 🧬 Step 7 — Variant annotation (bcftools + ClinVar mini)
+"""## 🧬 Step 7 — Variant annotation (bcftools + ClinVar)
 
 `bcftools annotate` matches variants by chromosome + position + allele and adds:
 - **ID**: ClinVar variant ID or rsID
@@ -332,7 +332,7 @@ Read groups (`-R`) are required by GATK and help track sample identity.
 # --- Annotate GATK output ---
 !echo "# Annotating GATK VCF"
 !mamba run -n bcftools bcftools annotate \
-  -a ./brca1/clinvar_mini.vcf.gz \
+  -a clinvar_mini.vcf.gz \
   -c ID,INFO \
   ./variants/gatk/cohort_filtered.vcf.gz \
   -o ./annotated/cohort_gatk_annotated.vcf
@@ -340,7 +340,7 @@ Read groups (`-R`) are required by GATK and help track sample identity.
 # --- Annotate normalised FreeBayes output ---
 !echo "# Annotating FreeBayes VCF (normalised)"
 !mamba run -n bcftools bcftools annotate \
-  -a ./brca1/clinvar_mini.vcf.gz \
+  -a clinvar_mini.vcf.gz \
   -c ID,INFO \
   ./variants/freebayes/cohort_freebayes_norm.vcf.gz \
   -o ./annotated/cohort_freebayes_annotated.vcf
