@@ -27,7 +27,7 @@ Raw FASTQ (paired-end)
     ├── [Step 5A] Variant Calling — GATK  → HaplotypeCaller → GVCF → VCF → filter
     ├── [Step 5B] Variant Calling — Free  → FreeBayes → bcftools filter (QUAL≥20)
     ├── [Step 6] Normalisation (FreeBayes)→ rename chromosomes + bcftools norm
-    ├── [Step 7] Annotation               → bcftools annotate + ClinVar mini
+    ├── [Step 7] Annotation               → bcftools annotate + ClinVar
     └── [Step 8] Summary Statistics       → bcftools stats (SNP/INDEL, Ts/Tv)
 ```
 
