@@ -332,7 +332,7 @@ Read groups (`-R`) are required by GATK and help track sample identity.
 # --- Annotate GATK output ---
 !echo "# Annotating GATK VCF"
 !mamba run -n bcftools bcftools annotate \
-  -a clinvar_mini.vcf.gz \
+  -a clinvar.vcf.gz \
   -c ID,INFO \
   ./variants/gatk/cohort_filtered.vcf.gz \
   -o ./annotated/cohort_gatk_annotated.vcf
@@ -340,7 +340,7 @@ Read groups (`-R`) are required by GATK and help track sample identity.
 # --- Annotate normalised FreeBayes output ---
 !echo "# Annotating FreeBayes VCF (normalised)"
 !mamba run -n bcftools bcftools annotate \
-  -a clinvar_mini.vcf.gz \
+  -a clinvar.vcf.gz \
   -c ID,INFO \
   ./variants/freebayes/cohort_freebayes_norm.vcf.gz \
   -o ./annotated/cohort_freebayes_annotated.vcf
@@ -404,7 +404,7 @@ for k in keys:
 | Variant Calling A | GATK HaplotypeCaller | `cohort_filtered.vcf.gz` |
 | Variant Calling B | FreeBayes + bcftools | `cohort_freebayes_filtered.vcf.gz` |
 | Normalisation | bcftools rename + norm | `cohort_freebayes_norm.vcf.gz` |
-| Annotation | bcftools + ClinVar mini | Annotated VCF (both callers) |
+| Annotation | bcftools + ClinVar | Annotated VCF (both callers) |
 | Statistics | bcftools stats | SNP/INDEL counts, Ts/Tv |
 
 ```
