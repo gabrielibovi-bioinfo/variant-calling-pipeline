@@ -175,7 +175,7 @@ This is why Step 6 (`rename-chrs` + `bcftools norm`) is required before annotati
 
 ## Author
 
-**Gabriel Ibovi**
+**Gabrieli Bovi**
 Bioinformatics | Genomics | Variant Analysis
 🔗 [github.com/gabrielibovi-bioinfo](https://github.com/gabrielibovi-bioinfo)
 
